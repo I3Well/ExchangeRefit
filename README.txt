@@ -76,7 +76,7 @@ Blueprints can be easily shared between profiles or manually wiped through the
 terminal interface using the "Delete blueprint" operational command.
 
 -------------------------------------------------------------------------------
-5. CHANGELOG & STABILITY (v1.2.0)
+5. CHANGELOG & STABILITY (v1.3.0)
 -------------------------------------------------------------------------------
 * Refactored data loading architecture into dedicated lightweight sub-modules 
   to fully comply with Janino script compilation buffer constraints.
