@@ -1,0 +1,18 @@
+{
+    "id": "exchangerefit",
+    "name": "ExchangeRefit",
+    "version": "1.4.0",
+    "specVersion": "b",
+    "gameVersion": "0.98a-RC8",
+    "description": "Allows players to copy, archive, and selectively paste complete ship loadouts using resources from fleet cargo directly from station docks. Press [X] at docks to open.",
+    "author": "Anjasnare",
+    "modPlugin": "data.plugins.X1Plugin",
+    "dependencies": [
+        {
+            "id": "lunalib",
+            "name": "LunaLib",
+            "optional": true
+        }
+    ],
+    "versionFile": "ExchangeRefit.version"
+}

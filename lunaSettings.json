@@ -1,0 +1,8 @@
+{
+  "exchange_refit_language": {
+    "type": "boolean",
+    "defaultValue": false,
+    "name": "Traduction Française / French Translation",
+    "tooltip": "Activez pour traduire l'intégralité du terminal en Français. | Enable to translate the entire terminal into French."
+  }
+}
