@@ -1,10 +1,10 @@
 {
     "id": "exchangerefit",
     "name": "ExchangeRefit",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "specVersion": "b",
     "gameVersion": "0.98a-RC8",
-    "description": "Allows players to copy, archive, and selectively paste complete ship loadouts using resources from fleet cargo directly from station docks. Press [X] at docks to open.",
+    "description": "Allows players to copy, archive, and selectively paste complete ship loadouts using resources from fleet cargo directly from the space map. Press [K] in open space to open.",
     "author": "Anjasnare",
     "modPlugin": "data.plugins.X1Plugin",
     "dependencies": [
