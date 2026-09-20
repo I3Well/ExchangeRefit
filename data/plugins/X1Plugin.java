@@ -25,10 +25,4 @@ public class X1Plugin extends BaseModPlugin {
         super.onGameLoad(newGame);
         Global.getSector().addTransientScript(new X1ClavierScript());
     }
-    
-    @Override
-    public void onNewGame() {
-        super.onNewGame();
-        Global.getSector().addTransientScript(new X1ClavierScript());
-    }
 }
