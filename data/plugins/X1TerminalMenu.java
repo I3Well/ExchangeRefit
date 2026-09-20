@@ -8,6 +8,86 @@ import com.fs.starfarer.api.combat.EngagementResultAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+public class X1TerminalMenu implements InteractionDialogPlugin {
+    protected final InteractionDialogPlugin originalPlugin;
+    protected InteractionDialogAPI dialog;
+    protected TextPanelAPI textPanel;
+    protected OptionPanelAPI options;
+    
+    public FleetMemberAPI vaisseauSelectionne = null;
+    public int slotChoisi = 1;
+    public int pageSlotsCourante = 1;
+    public List flotteFiltree = new ArrayList();
+    
+    public boolean filterWeapons = true;
+    public boolean filterHullmods = true;
+    public boolean filterSMods = true;
+    public boolean filterTags = true;
+    public boolean filterFighters = true;
+    public boolean filterGroups = true;
+    public boolean filterOfficer = true;
+
+    public X1TerminalMenu(InteractionDialogPlugin originalPlugin) { 
+        this.originalPlugin = originalPlugin; 
+    }
+
+    public void setPageSlotsCourante(int val) { this.pageSlotsCourante = val; }
+
+    @Override
+    public void init(InteractionDialogAPI dialog) {
+        this.dialog = dialog; 
+        this.textPanel = dialog.getTextPanel(); 
+        this.options = dialog.getOptionPanel();
+        X1TerminalActions.initialiserMenu(this);
+    }
+
+    @Override
+    public void optionSelected(String text, Object data) {
+        if (data == null) return;
+        
+        if ("TERMINAL_QUITTER".equals(data)) {
+            if (originalPlugin != null) {
+                dialog.setPlugin(originalPlugin);
+                options.clearOptions();
+                originalPlugin.init(dialog);
+            } else {
+                dialog.dismiss(); // Fermeture propre de la fenêtre volante autonome
+            }
+            return;
+        }
+        
+        X1TerminalActions.traiterOptionSelectionnee((String) data, this);
+    }
+
+    @Override
+    public void advance(float amount) {}
+    @Override
+    public void optionMousedOver(String text, Object data) {}
+    @Override
+    public void backFromEngagement(EngagementResultAPI result) {}
+    
+    @Override
+    public Object getContext() { 
+        return originalPlugin != null ? originalPlugin.getContext() : null; 
+    }
+    
+    @Override
+    public Map<String, com.fs.starfarer.api.campaign.rules.MemoryAPI> getMemoryMap() { 
+        return originalPlugin != null ? originalPlugin.getMemoryMap() : null; 
+    }
+}
+package data.plugins;
+
+import com.fs.starfarer.api.campaign.InteractionDialogAPI;
+import com.fs.starfarer.api.campaign.InteractionDialogPlugin;
+import com.fs.starfarer.api.campaign.OptionPanelAPI;
+import com.fs.starfarer.api.campaign.TextPanelAPI;
+import com.fs.starfarer.api.combat.EngagementResultAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import java.util.ArrayList;
+import java.util.List;
 
 public class X1TerminalMenu implements InteractionDialogPlugin {
     protected final InteractionDialogPlugin originalPlugin;
